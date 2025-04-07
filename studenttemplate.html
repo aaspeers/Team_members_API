@@ -1,0 +1,236 @@
+<head>
+    <script src="https://kit.fontawesome.com/5588346069.js" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome"
+        href="/css/app-wa-f3f5ed09392cd34476fd4ebd9ca72947.css?vsn=d">
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hovercard.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="student-card" data-author="A. Mandal">
+        <div class="student-content">
+            <!-- Dynamically load profile picture -->
+            <img class="profilepic" src="{{ member['Your profile picture'] }}" alt="{{ member['Full Name'] }}">
+
+            <div class="student-text">
+                <div class="main-intro">
+                    <!-- Dynamically load student name -->
+                    <h3>{{ member['Full Name'] }}</h3>
+
+                    <!-- Dynamically load topics of study -->
+                    <h5>{{ member['Topics of Study'] }}</h5>
+
+                    <!-- Dynamically load start date -->
+                    <h5 style="margin-top: 15px; margin-bottom: 20px;">
+                        {{ member['Starting Date to present'] }}
+                    </h5>
+
+                    <!-- Dynamically load email -->
+                    <h5 style="margin-bottom: 0px;">
+                        Email:
+                        <a class="email" href="mailto:{{ member['Email'] }}">
+                            {{ member['Email'] }}
+                        </a>
+                    </h5>
+
+                    <div class="student-links">
+                        <div class="social-links-container"
+                            style="display: flex; justify-content: start; gap: 20px; align-items: center;">
+                            {% if member['Twitter Account'] and member['Twitter Account'] != 'none' %}
+                            <a href="{{ member['Twitter Account'] }}" target="_blank" title="X Feed">
+                                <img src="https://static.wixstatic.com/media/79de71_8d00cbbfe2474dc08168206d2e7bdf9f~mv2.png"
+                                    alt="X Twitter" style="width: 40px; height: 40px;">
+                            </a>
+                            {% endif %}
+
+                            {% if member['Google Scholar'] and member['Google Scholar'] != 'none' %}
+                            <a href="{{ member['Google Scholar'] }}" target="_blank" title="Google Scholar">
+                                <img src="https://static.wixstatic.com/media/79de71_a3aadc379e444f9cbeed7c70acbb2133~mv2.png"
+                                    alt="Google Scholar" style="width: 40px; height: 40px;">
+                            </a>
+                            {% endif %}
+
+                            {% if member['Linkedin Link'] and member['Linkedin Link'] != 'none' %}
+                            <a href="{{ member['Linkedin Link'] }}" target="_blank" title="LinkedIn">
+                                <img src="https://static.wixstatic.com/media/79de71_02a429a0783f4c3f8022b68eb909f93a~mv2.png"
+                                    alt="LinkedIn" style="width: 40px; height: 40px;">
+                            </a>
+                            {% endif %}
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Dynamically load the bio -->
+                <div class="bio-section" style="margin-top:50px;">
+                    <hr class="solid">
+                    <h4>Biography</h4>
+                    <hr class="solid">
+                    <p>{{ member['Bio'] }}</p>
+                </div>
+
+                <!-- Publications section can also be dynamically loaded -->
+                <div class="publications-section">
+                    <hr class="solid">
+                    <h4>Publications</h4>
+                    <div class="search-bar-container">
+                        <input type="text" id="searchBar" class="search-bar" style="padding-left:50px"
+                            placeholder="Search publications..." onkeyup="filterTable()">
+                        <i class="fas fa-search"></i> <!-- Search Icon -->
+                    </div>
+                    <table class="publication-table" id="publicationTable">
+                        <tbody>
+                            {% for pub in publications %}
+                            <tr class="publication-row">
+                                <!-- Image and Link Column -->
+                                <td class="pub-image">
+                                    <a href="{{ pub.href_link }}" target="_blank">
+                                        <img src="{{ pub.image_address }}" alt="Publication figure {{ pub.pub_index }}">
+                                    </a>
+                                </td>
+
+                                <!-- Details Column -->
+                                <td class="pub-details">
+                                    <div class="pub-title">
+
+                                        <span class="pub-index">{{ pub.pub_index }}.</span> {{ pub.pub_title }}
+
+                                    </div>
+                                    <div class="pub-authors">{{ pub.pub_authors }}</div>
+                                    <div class="pub-journal">{{ pub.pub_journal }}</div>
+                                    <div class="pub-abstract">{{ pub.abstract }}</div>
+                                </td>
+                                <!-- Altmetric Column -->
+                                <td class="altmetric">
+                                    <div class="circle"></div>
+                                    <div class="altmetric-embed" data-badge-type="donut"
+                                        data-doi="{{ pub.doi|replace('doi/', '') }}">
+                                    </div>
+                                    <a href="{{ pub.altmetricslink }}" target="_blank" class="invisible-link"></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+
+                        <div id="noPublicationsMessage" style="font-size:20px; display: none; color:#CCCC99; text-align: center; margin-top: 20px;margin-bottom:20px;">
+                            This student has no publications under Professor Gholipour.
+                        </div>
+                        <script>
+
+                            document.getElementById('searchBar').value = "{{ member['Publications_Tag'] }}";  // Set the value of searchBar
+                            const searchBar = document.getElementById('searchBar');
+                            searchBar.value = "{{ member['Publications_Tag'] }}";  // Set the value of searchBar
+
+                            const event = new KeyboardEvent('keyup', {
+                                key: 'Enter',
+                                code: 'Enter',
+                                keyCode: 13,
+                                which: 13
+                            });
+
+                            searchBar.dispatchEvent(event);  // Trigger the event manually
+                            function filterTable() {
+                                var input = document.getElementById("searchBar");
+                                var filter = input.value.toLowerCase().trim();
+                                var table = document.getElementById("publicationTable");
+                                var tr = table.getElementsByTagName("tr");
+                                var noPublicationsMessage = document.getElementById("noPublicationsMessage");
+
+                                // If search bar is empty, don't filter and just show all rows
+                                if (filter === "") {
+                                    for (var i = 0; i < tr.length; i++) {
+                                        tr[i].classList.remove("show");
+                                        setTimeout(function (index) {
+                                            tr[index].classList.add("show");
+                                            tr[index].style.display = "";
+                                        }, 500, i);
+                                    }
+                                    noPublicationsMessage.style.display = "none";
+                                    return;
+                                }
+
+                                var filterWords = filter.split(" ").filter(function (word) {
+                                    return word.length > 0;
+                                });
+
+                                var visibleRows = 0;
+
+                                var lastVisibleRow = null;
+                                for (var i = 0; i < tr.length; i++) {
+                                    var td = tr[i].getElementsByTagName("td");
+                                    if (td.length > 0) {
+                                        var pubTitle = td[1].getElementsByClassName("pub-title")[0].textContent.toLowerCase();
+                                        var pubAuthors = td[1].getElementsByClassName("pub-authors")[0].textContent.toLowerCase();
+                                        var pubJournal = td[1].getElementsByClassName("pub-journal")[0].textContent.toLowerCase();
+
+                                        var matches = filterWords.every(function (word) {
+                                            return pubTitle.includes(word) || pubAuthors.includes(word) || pubJournal.includes(word);
+                                        });
+
+                                        if (matches) {
+                                            setTimeout(function (index) {
+                                                tr[index].classList.add("show");
+                                                tr[index].style.display = "";
+                                                lastVisibleRow = tr[index];
+                                                visibleRows++;
+                                            }, 500, i);
+                                        } else {
+                                            setTimeout(function (index) {
+                                                tr[index].classList.remove("show");
+                                                tr[index].style.display = "none";
+                                            }, 500, i);
+                                        }
+                                    }
+                                }
+
+                                if (lastVisibleRow) {
+                                    lastVisibleRow.style.borderBottom = "2px solid black";
+                                }
+                                setTimeout(function () {
+                                    table.style.display = "block";  // Show the table
+                                    table.classList.add("fade-in"); // Trigger the fade-in effect
+                                }, 500);  // Delay the fade-in effect
+                                
+                                // Move the tableHeight calculation outside to ensure it's used in the next timeout
+                                setTimeout(function () {
+                                    var tableHeight = table.scrollHeight || table.clientHeight;  // Use scrollHeight or clientHeight
+                                
+                                    // Add a threshold check for the table height
+                                    if (tableHeight > 100) {  // Adjust the threshold as needed
+                                        noPublicationsMessage.style.display = "none";  // Hide "No publications" message if rows are visible
+                                    } else {
+                                        noPublicationsMessage.style.display = "block";  // Show "No publications" message if no rows are visible
+                                    }
+                                }, 1000);  // Delay by 1000ms (1 second) to give time for the table to fully render
+                                
+                                 // Delay the table height check by 1 second (1000 ms)
+
+
+                                // Highlight the last visible row with a border
+                            }
+
+
+                        </script>
+
+                    </table>
+
+                    <!-- Add publication logic here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

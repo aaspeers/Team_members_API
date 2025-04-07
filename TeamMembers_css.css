@@ -1,0 +1,325 @@
+body {
+    font-family: Barlow, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    /* Black background */
+    color: #fff;
+    /* White text color */
+
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+
+}
+
+h1 {
+    text-align: Left;
+    color: #fff;
+    /* White for the heading */
+}
+
+.team-photo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    /* Light border around the image */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #000000;
+    /* Dark background for the profile */
+    border-radius: 8px;
+
+    /* Light shadow */
+    height: 240px;
+    margin-right: 20px;
+    border: 3px solid #000000;
+    padding-bottom: 20px;
+    /* Light border around the image */
+    transition: all 0.5s ease;
+    /* Smooth transition for changes */
+    transform: scale(1);
+}
+
+.gholipour {
+
+    height: 220px;
+    border-radius: 10%;
+    margin-top: 20px;
+    border: 3px solid #2a2929;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.profile .info {
+    max-width: 700px;
+
+}
+
+
+
+
+.contact {
+    margin-top: 10px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #66ccff;
+    /* Light blue for links */
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.profile h3 {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+hr.solid {
+    border: 2px solid #605f5f;
+    border-radius: 1px;
+}
+
+.profile:hover {
+    /* Light background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow on hover */
+    transform: scale(1.05);
+    /* Slightly scale up the card */
+
+}
+
+.phd-students {
+    font-family: Barlow, sans-serif;
+    width: 1000px;
+    /* Make the parent a flex container */
+    justify-content: center;
+    /* Horizontally center the child */
+    align-items: center;
+    /* Vertically center the child */
+    margin: 0 auto;
+    /* Centers the div horizontally in its parent */
+}
+
+.phd-students h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.student-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.student-row.single {
+    justify-content: center;
+}
+
+.student-card {
+    width: 455px;
+    text-align: left;
+    border: 1px solid #222222;
+    padding: 0px;
+    border-radius: 8px;
+    margin-right: 4px;
+    margin-left: 10px;
+    /* Space between image and text */
+    height: 200px;
+    padding-right: 10px;
+    transition: all 0.5s ease;
+    /* Smooth transition for changes */
+    transform: scale(1);
+    /* Initial scale */
+}
+
+.student-content {
+    display: flex;
+    align-items: flex-start;
+    /* Align text to the top */
+}
+
+.student-card img {
+    width: 200px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.student-card p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.student-card a {
+    margin-top: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.student-text {
+    margin-left: 20px;
+    /* Space between image and text */
+}
+
+.student-text h4 {
+    margin-top: 10px;
+    font-size: 19px;
+    /* Optional: Ensure there's no extra margin at the top */
+}
+
+.student_links {
+    display: flex;
+
+}
+
+.phd-students h2 {
+
+    text-align: left;
+    /* Aligns the text to the left */
+}
+
+/* The overlay that darkens the background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    /* Start with opacity 0 for fade-in effect */
+    animation: fadeIn 0.3s forwards;
+    /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* Start with opacity 0 */
+    }
+
+    100% {
+        opacity: 1;
+        /* End with opacity 1 */
+    }
+}
+
+
+
+.expanded-card {
+    width: 800px;
+    position: absolute;
+    top: 50px;
+    /* Starting point for vertical position */
+    left: 50%;
+    /* Horizontal centering */
+    transform: translateX(-50%);
+    /* Correct for perfect centering */
+    text-align: left;
+    border: 1px solid #222222;
+    padding: 0px;
+    border-radius: 8px;
+    background-color: #000;
+    min-height: 700px;
+    padding-right: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeInCard 0.3s forwards;
+}
+
+@keyframes fadeInCard {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        /* Start with opacity 1 */
+    }
+
+    100% {
+        opacity: 0;
+        /* End with opacity 0 */
+    }
+}
+
+/* The expanded student card */
+
+.student-card h3 {
+    position: absolute;
+    margin-top: 15px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.phd-students p {
+
+    font-weight: lighter;
+}
+
+.student-text h5 {
+    margin-top: 55px;
+    top: 25px;
+    font-size: 15px;
+    font-weight: normal;
+
+}
+
+/* Hover effect for student cards */
+.student-card:hover {
+    background-color: #111; /* Slightly lighter black */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Soft white glow */
+    transform: scale(1.06); /* Slight pop */
+    cursor: pointer;
+}
+
+
+.email {
+    margin-top: 20px;
+}
+
+.contact-links a {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #555;
+}
+
+.contact-links a:hover {
+    color: #1da1f2;
+    /* Twitter blue or other styles */
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 15px;
+}

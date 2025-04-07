@@ -1,0 +1,390 @@
+body {
+    font-family: Barlow, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #642020;
+    color: #fff;
+    justify-content: center;
+    /* Centers the student card horizontally */
+    align-items: center;
+    /* Centers the student card vertically */
+
+    overflow: hidden;
+    /* Hides the scrollbar and overflow */
+}
+
+.student-card {
+    width: 800px;
+    text-align: left;
+    border: 1px solid #464545;
+    border-radius: 10px;
+    margin: 20px auto;
+    height: auto;
+    background-color: #000000;
+    box-shadow: 0 2px 10px rgb(0, 0, 0);
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    transform: scale(1);
+}
+
+.space {
+    min-height: 100px;
+}
+
+.student-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.profilepic {
+    min-width: 250px;
+
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.student-text {
+    color: white;
+}
+
+.student-text h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.student-text h5 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.student-card p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.social-links-container {
+    min-height: 100px;
+    margin-top: -20px;
+}
+
+.main-intro {
+    height: 200px;
+    position: relative;
+    /* Make the student card the reference point */
+}
+
+.student-links a,
+.blackbox {
+    margin-right: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.student-links a:hover {
+    text-decoration: underline;
+}
+
+.bio-section,
+.publications-section {
+    margin-top: 20px;
+    margin-left: -250px;
+}
+
+.bio-section h4,
+.publications-section h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.bio-section hr {
+    font-size: 24px;
+    margin-left: -20px;
+    width: 797px;
+}
+
+.publications-section hr {
+    font-size: 24px;
+    margin-left: -20px;
+    width: 797px;
+}
+
+.bio-section p,
+.publications-section ul {
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.publications-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.publications-section ul li {
+    margin-bottom: 8px;
+}
+
+.student-links img {
+    width: 30px;
+    height: 30px;
+}
+
+.solid {
+    margin-left: -270px;
+    width: 750px;
+    margin-bottom: 0px;
+    opacity: 0.4;
+}
+
+a {
+    color: aqua;
+}
+
+h5 {
+    margin-top: 5px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: normal;
+
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Hide scrollbars */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.search-bar-container i {
+    position: absolute;
+    left: 45px;
+    /* Position the icon inside the search bar */
+    top: 42px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 18px;
+    display:none;
+}
+
+.search-bar {
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    padding: 10px;
+    padding-left: 30px;
+    width: 70%;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    background-color: #a8a7a7;
+    font-size: 16px;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    font-family: Barlow;
+    color: rgb(0, 0, 0);
+    display: none;
+}
+
+.publication-table {
+    width: 797px;
+    margin-left: -20px;
+    display: none;
+    border-spacing: 0 20px;
+    align-items: center;
+    border-collapse: collapse;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Class to apply the fade-in animation */
+.fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+    /* Fade in over 0.5 seconds */
+    display: block;
+    /* Ensure the element is visible when animation starts */
+}
+
+td {
+    padding: 20px;
+    /* This adds some padding inside each cell */
+    padding-bottom: 25px;
+    /* Optional: adds a border around the cells */
+    min-height: 50px;
+    /* Minimum height ensures that shorter rows have some space */
+}
+
+.publication-row {
+    vertical-align: top;
+
+}
+
+.pub-image {
+    width: 150px;
+}
+
+.pub-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.pub-details {
+    padding: 0 20px;
+    width: 400px;
+}
+
+.pub-index {
+    font-weight: bold;
+    color: #FFD700;
+    font-family: "Barlow", serif;
+}
+
+.pub-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: "Barlow", serif;
+    color: #CCCC99;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.pub-authors {
+    font-style: italic;
+    font-family: "Barlow", serif;
+    color: #FF6666;
+    margin-bottom: 5px;
+}
+
+.pub-journal {
+    font-family: "Barlow", serif;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+tr.show {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+}
+
+tr {
+    border: solid grey;
+    border-width: 1px 0;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.pub-abstract {
+    font-family: "Barlow", serif;
+    color: #AAAAAA;
+    margin-bottom: 10px;
+}
+
+
+
+#altmetric-badge .altmetric-embed-text {
+    color: #ffffff;
+    font-size: 20px;
+    /* Increases the font size */
+    position: relative;
+}
+
+.altmetric {
+    position: relative;
+    /* Set relative positioning to control stacking order */
+}
+
+.circle {
+    position: absolute;
+    top: 0;
+
+    width: 80px;
+    /* Adjust as per your design */
+    height: 80px;
+    margin-left: 30px;
+    /* Adjust as per your design */
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1;
+    top: 50px;
+    ;
+    /* Make sure the circle is behind the badge */
+}
+
+.altmetric-embed {
+    position: absolute;
+
+    /* Center the badge vertically */
+    margin-top: 40px;
+    margin-left: 40px;
+
+    /* Center the badge horizontally */
+    transform: scale(1.5);
+    /* Correct the positioning */
+    z-index: 2;
+    /* Place the badge in front of the circle */
+}
+
+.invisible-link {
+    position: absolute;
+    top: 0;
+    left: 100;
+    width: 100%;
+    background: transparent;
+    /* Ensure the invisible link covers the badge */
+    height: 80%;
+    /* Ensure the invisible link covers the badge */
+    z-index: 3;
+    margin-top: 20px;
+    /* Place the invisible link on top */
+}
+
+.instructions {
+    font-family: Barlow;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+#parent {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#child {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 17px;
+    /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box;
+    /* So the width will be 100% + 17px */
+}

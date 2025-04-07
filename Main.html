@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Our Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External Scripts -->
+    <script src="https://kit.fontawesome.com/5588346069.js" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/TeamMembers_css.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Meet The Team</h1>
+        <img src="https://static.wixstatic.com/media/2ddedb_eb79edb5abe84748b007ab97c28ad9f4~mv2.jpg" alt="Team Photo"
+            class="team-photo">
+
+        <hr class="solid">
+        <h2 class="head_title">Principal Investigator</h1>
+            <hr class="solid">
+            <div class="profile">
+                <img class="gholipour"
+                    src="https://static.wixstatic.com/media/2ddedb_0efee328bb374675bc4e55c9bcf867d0~mv2.jpg"
+                    alt="Professor Behrad Gholipour">
+                <div class="info">
+                    <h3>Professor Behrad Gholipour, PhD, PEng
+                    </h3>
+                    </p>
+                    <p clas="prof_title"><strong>Assistant Professor of Photonics, Faculty of Electrical and
+                            Computer
+                            Engineering</strong></p>
+                    <p>
+                        Department of Electrical & Computer Engineering, University of Alberta</p>
+                    <div class="contact">
+                        <p><strong>Email:</strong> <a href="mailto:bgholipo@ualberta.ca">bgholipo@ualberta.ca</a>
+                        <p><strong>Phone:</strong> <a href="tel:+1(780) 492-3535">(780) 492-3535</a></p>
+                        <p><strong>Address:</strong> <a target="_blank"
+                                href="https://www.google.com/maps/place/Donadeo+Innovation+Centre+for+Engineering/@53.5284696,-113.5338732,17z/data=!4m6!3m5!1s0x53a0218a119b1d79:0x99c87bfb9bf82301!8m2!3d53.5282209!4d-113.5296782!16s%2Fg%2F11bwnb3jms?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D">5-304
+                                Donadeo Innovation Centre For Engineering
+                                9211 116 St,
+                                Edmonton,
+                                AB,
+                                T6G 2H5</a></p>
+                        <a class="links" href="https://x.com/NanoscaleOptics" target="_blank" title="X Feed">
+                            <img src="https://static.wixstatic.com/media/79de71_8d00cbbfe2474dc08168206d2e7bdf9f~mv2.png"
+                                alt="X Twitter" style="width: 30px; height: 30px;">
+                        </a>
+                        <a href="https://scholar.google.ca/citations?user=15N3MpwAAAAJ&hl=en&oi=ao" target="_blank"
+                            title="Google Scholar">
+                            <img src="https://static.wixstatic.com/media/79de71_a3aadc379e444f9cbeed7c70acbb2133~mv2.png"
+                                alt="Google Scholar" style="width: 30px; height: 30px;">
+                        </a>
+                        <a href="https://ca.linkedin.com/in/nanoscale-optics-lab-uofa-87a819236" target="_blank"
+                            title="Google Scholar">
+                            <img src="https://static.wixstatic.com/media/79de71_02a429a0783f4c3f8022b68eb909f93a~mv2.png"
+                                alt="Google Scholar" style="width: 30px; height: 30px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more profiles for other team members here -->
+    </div>
+
+    {% for role_title, role_members in grouped.items() %}
+  <div class="container">
+    <hr class="solid">
+    <h2>{{ role_title }}</h2>
+    <hr class="solid" style="margin-bottom: 25px;">
+
+    {% for i in range(0, role_members|length, 2) %}
+      {% set one_left = i + 1 >= role_members|length %}
+      <div class="student-row {% if one_left %}single{% endif %}">
+
+        <!-- First card -->
+        {% set m1 = role_members[i] %}
+        <div class="student-card" onclick="sendLightboxMessage('{{ m1['Full Name'] }}')">
+          <div class="student-content">
+            <img src="{{ m1['Your profile picture'] }}" alt="{{ m1['Full Name'] }}">
+            <div class="student-text">
+              <h3>{{ m1['Full Name'] }}</h3>
+             
+              <h5>{{ m1['Topics of Study'] }}</h5>
+              <div class="bottom-text">
+              <p>{{ m1['Starting Date to present'] }}</p>
+              <p>Email: <a href="mailto:{{ m1['Email'] }}">{{ m1['Email'] }}</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second card -->
+        {% if not one_left %}
+          {% set m2 = role_members[i + 1] %}
+          <div class="student-card" onclick="sendLightboxMessage('{{ m2['Full Name'] }}')">
+            <div class="student-content">
+              <img src="{{ m2['Your profile picture'] }}" alt="{{ m2['Full Name'] }}">
+              <div class="student-text">
+                <h3>{{ m2['Full Name'] }}</h3>
+                <h5>{{ m2['Topics of Study'] }}</h5>
+                <div class="bottom-text">
+                <p>{{ m2['Starting Date to present'] }}</p>
+                <p>Email: <a href="mailto:{{ m2['Email'] }}">{{ m2['Email'] }}</a></p>
+            </div>
+            </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+      </div>
+    </div>
+    <script>
+        function sendLightboxMessage(fullName) {
+            const lightboxName = `${fullName}_Lightbox`;
+            window.parent.postMessage({
+              action: "openLightbox",
+              lightboxName: lightboxName
+            }, "*");
+          }
+      </script> 
+</body>
+
+</html>
