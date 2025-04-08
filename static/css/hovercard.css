@@ -103,13 +103,13 @@ body {
 .bio-section hr {
     font-size: 24px;
     margin-left: -20px;
-    width: 797px;
+    width: 796px;
 }
 
 .publications-section hr {
     font-size: 24px;
     margin-left: -20px;
-    width: 797px;
+    width: 796px;
 }
 
 .bio-section p,
@@ -300,6 +300,7 @@ tr {
     border-width: 1px 0;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
+    width: 796px;
 }
 
 .pub-abstract {
