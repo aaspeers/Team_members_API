@@ -86,6 +86,7 @@
                 <div class="publications-section">
                     <hr class="solid">
                     <h4>Publications</h4>
+                    <hr class="solid">
                     <div class="search-bar-container">
                         <input type="text" id="searchBar" class="search-bar" style="padding-left:50px"
                             placeholder="Search publications..." onkeyup="filterTable()">
@@ -106,7 +107,7 @@
                                 <td class="pub-details">
                                     <div class="pub-title">
 
-                                        <span class="pub-index">{{ pub.pub_index }}.</span> {{ pub.pub_title }}
+                                        {{ pub.pub_title }}
 
                                     </div>
                                     <div class="pub-authors">{{ pub.pub_authors }}</div>
